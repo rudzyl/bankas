@@ -1,0 +1,37 @@
+body {
+    padding: 50px;
+}
+
+/*meniu*/
+
+.topnav {
+    background-color: cadetblue;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.topnav a {
+    color: white;
+    text-align: center;
+    padding-right: 15px;
+    text-decoration: none;
+}
+
+/* saskaitu saraso link */
+
+.table tbody a {
+    overflow: hidden;
+    color: rgb(8, 8, 8);
+    text-align: center;
+    padding-right: 10px;
+    padding-left: 5px;
+    text-decoration: none;
+}
+
+.pr {
+    background-color: rgb(148, 255, 148);
+}
+
+.nu {
+    background-color: rgb(255, 78, 78);
+}
