@@ -1,3 +1,8 @@
+<?php
+require __DIR__. '/bootstrap.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +16,7 @@
 </head>
 <body>
   <div class="topnav">
-      <a class="active" href="saskaituSarasas.php">Pagrindinis</a>
+      <a href="saskaituSarasas.php">Pagrindinis</a>
       <a href="saskaitosSukurimas.php">Sukurti nauja saskaita</a>
       <a href="pridetiLesas.php">Prideti lesas</a>
       <a href="nuskaiciuotiLesas.php">Nuskaiciuoti lesas</a>

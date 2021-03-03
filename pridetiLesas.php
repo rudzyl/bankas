@@ -1,3 +1,17 @@
+<?php
+session_start();
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+  $lesos = (float)($_POST['lesos'] ?? 0); //jei x nera defoltine reiksme 0
+  $lesuPridejimas = (float)($_POST['lesuPridejimas'] ?? 0);
+  $suma = $lesos + $lesuPridejimas;
+  $_SESSION['lesos'] = $suma;
+  header('Location: http://localhost/bankas/pridetiLesas.php');
+  die;
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,7 +44,7 @@
         <th scope="row">1</th>
         <td>Lina </td>
         <td>Liniene</td>
-        <td>46123456789</td>
+        <td type="text" name="lesos"><?= $suma ?? '' ?></td>
         <td>
         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
             <form action="" method="post">
