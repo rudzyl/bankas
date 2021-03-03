@@ -1,9 +1,5 @@
 <?php
 
-$randSaskaita = 'LT-' . substr(str_shuffle(str_repeat('0123456789', mt_rand(1,18))), 1, 18);
-
-
-
 ?>
 
 

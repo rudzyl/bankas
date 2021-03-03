@@ -1,5 +1,8 @@
 <?php
 require __DIR__. '/bootstrap.php';
+_d(readData());
+
+_d(getNextId());
 
 ?>
 
@@ -30,8 +33,8 @@ require __DIR__. '/bootstrap.php';
         <th scope="col">#</th>
         <th scope="col">Vardas</th>
         <th scope="col">Pavarde</th>
-        <th scope="col">ID</th>
         <th scope="col">Asmens kodas</th>
+        <th scope="col">ID</th>
       </tr>
     </thead>
     <tbody>
