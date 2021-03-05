@@ -2,7 +2,7 @@
 require __DIR__. '/bootstrap.php';
 _d(readData());
 
-_d(getNextId());
+
 
 ?>
 
@@ -19,10 +19,10 @@ _d(getNextId());
 </head>
 <body>
   <div class="topnav">
-      <a href="saskaituSarasas.php">Pagrindinis</a>
-      <a href="saskaitosSukurimas.php">Sukurti nauja saskaita</a>
-      <a href="pridetiLesas.php">Prideti lesas</a>
-      <a href="nuskaiciuotiLesas.php">Nuskaiciuoti lesas</a>
+      <a href="<?= URL ?>saskaituSarasas.php">Pagrindinis</a>
+      <a href="<?= URL ?>saskaitosSukurimas.php">Sukurti nauja saskaita</a>
+      <a href="<?= URL ?>pridetiLesas.php">Prideti lesas</a>
+      <a href="<?= URL ?>nuskaiciuotiLesas.php">Nuskaiciuoti lesas</a>
   </div>
 
   <br></br>
@@ -35,15 +35,18 @@ _d(getNextId());
         <th scope="col">Pavarde</th>
         <th scope="col">Asmens kodas</th>
         <th scope="col">ID</th>
+        <th scope="col">Likutis</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <th scope="row">1</th>
+      <?php foreach(readData() as $user) : ?>
+        <th scope="row"><?= $user['id'] ?></th>
         <td>Lina </td>
         <td>Liniene</td>
         <td>46123456789</td>
         <td>LT958374958736475896</td>
+        <td>Likutis: <?= $user['likutis'] ?></td>
         <td>
         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
           <button type="button" name="istrinti">ištrinti</button>
@@ -51,6 +54,7 @@ _d(getNextId());
           <a href='nuskaiciuotiLesas.php' class="nu" name="nuskaiciuoti">nuskaičiuoti lėšas</a>
         </div>
         </td>
+        <?php endforeach ?>
       </tr>
     </tbody>
   </table>
