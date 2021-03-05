@@ -11,16 +11,15 @@ function writeData(array $data) : void {
     $data = json_encode($data);
     file_put_contents(DIR. 'data/users.json', $data);
 }
-function getNextId() : int {
-    $asmensKodas = substr(str_shuffle(str_repeat('0123456789', mt_rand(1,18))), 1, 18);
+function getNextId(int $id) : int {
     if(!file_exists(DIR. 'data/indexes.json')) { 
-        $index = json_encode(['id' => $asmensKodas]);
+        $index = json_encode(['id' => 1]);
         file_put_contents(DIR. 'data/indexes.json', $index);
     }
     $index = file_get_contents(DIR. 'data/indexes.json');
     $index = json_decode($index, 1);
     $id = (int) $index['id'];
-    $index['id'] = $asmensKodas;
+    $index['id'] = $id + 1;
     $index = json_encode($index);
     file_put_contents(DIR. 'data/indexes.json', $index);
     return $id;
