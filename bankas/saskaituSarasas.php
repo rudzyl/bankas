@@ -50,7 +50,7 @@ _d(readData());
         <td>
         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
           <button type="button" name="istrinti">ištrinti</button>
-          <a href='pridetiLesas.php' class="pr" name="prideti">prideti lėšų</a>
+          <button href='pridetiLesas.php' class="pr" name="prideti">prideti lėšų</button>
           <a href='nuskaiciuotiLesas.php' class="nu" name="nuskaiciuoti">nuskaičiuoti lėšas</a>
         </div>
         </td>
