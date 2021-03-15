@@ -9,7 +9,6 @@ require __DIR__. '/bootstrap.php';
     create($vardas, $pavarde, $asmensKodas, $likutis); 
     header('Location: '.URL);
     die;
-
 }
 
 ?>

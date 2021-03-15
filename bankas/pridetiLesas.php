@@ -1,16 +1,29 @@
 <?php
-session_start();
+require __DIR__. '/bootstrap.php';
+//POST scenarijus
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
-  $lesos = (float)($_POST['lesos'] ?? 0); //jei x nera defoltine reiksme 0
-  $lesuPridejimas = (float)($_POST['lesuPridejimas'] ?? 0);
-  $suma = $lesos + $lesuPridejimas;
-  $_SESSION['lesos'] = $suma;
-  header('Location: http://localhost/bankas/pridetiLesas.php');
+  $id = $_GET['id'] ?? 0;
+  $id = (int) $id;
+  
+  $likutis = $_POST['count'] ?? 0;
+  $likutis = (int) $likutis;
+  add($id, $likutis);
+  header('Location: '.URL);
   die;
+
 }
-
+//GET scenarijus
+if($_SERVER['REQUEST_METHOD'] == 'GET') {
+  $id = $_GET['id'] ?? 0;
+  $id = (int) $id;
+  $user = getUser($id);
+  if(!$user) {
+      // reik isvesti klaidos pranesima
+      header('Location: '.URL); 
+      die;
+  }
+}
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,11 +37,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Prideti Lesas</title>
 </head>
 <body>
-    <div class="topnav">
-        <a class="active" href="saskaituSarasas.php">Pagrindinis</a>
-        <a href="saskaitosSukurimas.php">Sukurti nauja saskaita</a>
-        <a href="pridetiLesas.php">Prideti lesas</a>
-        <a href="nuskaiciuotiLesas.php">Nuskaiciuoti lesas</a>
+<div class="topnav">
+        <a href="<?= URL ?>saskaituSarasas.php">Pagrindinis</a>
+        <a href="<?= URL ?>saskaitosSukurimas.php">Sukurti nauja saskaita</a>
+        <a href="<?= URL ?>pridetiLesas.php">Prideti lesas</a>
+        <a href="<?= URL ?>nuskaiciuotiLesas.php">Nuskaiciuoti lesas</a>
     </div>
     <table class="table">
     <thead>
@@ -36,25 +49,25 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         <th scope="col">#</th>
         <th scope="col">Vardas</th>
         <th scope="col">Pavarde</th>
-        <th scope="col">Saskaitos Likutis</th>
+        <th scope="col">Asmens Kodas</th>
+        <th scope="col">likutis</th>
       </tr>
     </thead>
-    <tbody>
       <tr>
-        <th scope="row">1</th>
-        <td>Lina </td>
-        <td>Liniene</td>
-        <td type="text" name="lesos"><?= $suma ?? '' ?></td>
+        <th scope="row"><?= $user['id'] ?></th>
+        <td><?= $user['vardas'] ?></td>
+        <td><?= $user['pavarde'] ?></td>
+        <td><?= $user['asmensKodas'] ?></td>
+        <td><?= $user['likutis'] ?></td>
         <td>
+        <form action="<?= URL ?>pridetiLesas.php?id=<?= $user['id'] ?>" method="post">
         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-            <form action="" method="post">
-                <input type="text" name="lesuPridejimas"></input>
-                <button type="submit">prideti lėšų</button>
-            </form>
+          <input type="text" value = "<?= $user['likutis'] ?>" name="likutis"></input>
+          <button type="submit">prideti lėšų</button>
         </div>
         </td>
       </tr>
-    </tbody>
+    </form>
   </table>
     
 </body>
