@@ -16,5 +16,3 @@ elseif ('store' == $uri[0]) {
 }
 
 
-echo 'DURYS';
-
