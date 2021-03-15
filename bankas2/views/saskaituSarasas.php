@@ -20,7 +20,7 @@
           <td><?= $user['vardas'] ?></td>
           <td><?= $user['pavarde'] ?></td>
           <td><?= $user['asmensKodas'] ?></td>
-          <!-- <td><?= $user[''] ?></td> -->
+          <!-- <td><?= $user['asmeninisId'] ?></td> -->
           <td><?= $user['likutis'] ?></td>
           <td>
           <div class="btn-group" role="group" aria-label="Basic mixed styles example">
