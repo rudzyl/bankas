@@ -15,18 +15,18 @@
     </thead>
     <tbody>
       <tr> 
-      <?php foreach([] as $user) : ?>
-          <th scope="row"><?= $user['id'] ?></th>
+      <?php foreach($users as $user) : ?>
+          <th scope="row">1</th> 
           <td><?= $user->vardas ?></td>
           <td><?= $user->pavarde ?></td>
           <td><?= $user->asmensKodas ?></td>
-          <!-- <td><?= $user->asmeninisId ?></td> -->
+          <td><?= $user->asmeninisId ?></td>
           <td><?= $user->likutis ?></td>
           <td>
           <div class="btn-group" role="group" aria-label="Basic mixed styles example">
             <a href = "" type="button" name="istrinti">ištrinti</a>
-            <a href="<?= URL ?>pridetiLesas.php?id=<?= $user->id ?>" type="button" class="pr" name="prideti">prideti lėšų</a>
-            <a href="<?= URL ?>nuskaiciuotiLesas.php?id=<?= $user->id ?>" type="button" class="nu" name="nuskaiciuoti">nuskaičiuoti lėšas</a>
+            <a href="<?= URL ?>pridetiLesas/<?= $user->id ?>" type="button" class="pr" name="prideti">prideti lėšų</a>
+            <a href="<?= URL ?>nuskaiciuotiLesas/<?= $user->id ?>" type="button" class="nu" name="nuskaiciuoti">nuskaičiuoti lėšas</a>
           </div>
           </td>
         <?php endforeach ?>
