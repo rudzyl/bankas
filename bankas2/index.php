@@ -9,7 +9,7 @@ $uri = explode('/',str_replace(INSTALL_DIR, '', $_SERVER['REQUEST_URI']));
     (new UserController)->index();
 }
 elseif ('saskaitosSukurimas' == $uri[0]) {
-    (new UserController)->create();
+    (new UserController)->saskaitosSukurimas();
 }
 elseif ('store' == $uri[0]) {
     (new UserController)->store();
