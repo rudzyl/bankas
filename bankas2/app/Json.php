@@ -51,6 +51,8 @@ class Json {
  // perduodam kiek mum reik count
      public function store(User $user) : void {
 
+        _dd($user);
+
          $id = $this->getNextId();
          $user->id = $id;
          $this->data[] = $user; // i json faila bus automatiskai irasyta
@@ -60,7 +62,7 @@ class Json {
 
          foreach($this->data as $key => $user) {
              if($user->id == $updateUser->id) { // jei id sutampa su id - User update
-                 $this->data[$key] = $updateUser; //pakeiciama i nauja
+                 $this->data[$key] = $user; //pakeiciama i nauja
                  return;
              }
          }
