@@ -8,7 +8,6 @@ define('DIR', __DIR__.'/');
 require DIR. 'app/UserController.php';
 require DIR. 'app/Json.php';
 require DIR. 'app/User.php';
-require DIR. 'app/Account.php';
 
 _d($_SESSION, 'SESIJA<-----');
 

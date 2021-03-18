@@ -16,8 +16,8 @@ class UserController {
         $user = new User;
         $user->vardas = (string) ($_POST['vardas'] ?? '');
         $user->pavarde = (string) ($_POST['pavarde'] ?? '');
-        $user->asmensKodas = (string) ($_POST['asmensKodas'] ?? '');
-        $user->asmeninisId = (int) ($_POST['asmeninisId'] ?? '');
+        $user->asmensKodas = $this->tikrintiId ((string) ($_POST['asmensKodas'] ?? ''));
+        $user->asmeninisId = UserController::saskaitosNumeris();
         $user->likutis = (int) ($_POST['pridetiPinigus'] ?? 0);
 
         Json::getDB()->store($user); // sukuria 
@@ -58,8 +58,8 @@ class UserController {
         require DIR.'views/withdraw.php';
     }
 
-    public function nuskaiciuotiPinigus(int $id) : void
-    {
+    public function nuskaiciuotiPinigus(int $id) : void {
+    
         $user = Json::getDB()->getUser($id);
         $withdraw = (float) ($_POST['nuskaiciuotiPinigus'] ?? 0);
         $withdrawRound = round($withdraw, 2);
@@ -78,6 +78,30 @@ class UserController {
         header('Location: '.URL);
         die;
     }
+    public static function saskaitosNumeris() : string {
+    
+        $numeris = '01';
+        $bankoKodas = '88000';
+        $betkoksSkaicius = '';
+        for($i = 0; $i <= 10; $i++) {
+            $rand = (string) rand(0, 9);
+            $betkoksSkaicius .= $rand;
+        }
+        $saskaitosNumeris = 'LT' . $numeris . $bankoKodas . $betkoksSkaicius;
+        $saskaitosNumeris = (string) $saskaitosNumeris;
+        return $saskaitosNumeris;
+    }
+    private function tikrintiId(string $zmogausId) {
 
-
+        $users = Json::getDB()->readData();
+        foreach($users as $user) {
+            if($user->zmogausId == $zmogausId || strlen($zmogausId) < 11) {
+                header('Location: '.URL);
+                die;
+                return;
+            } else {
+                return $zmogausId;
+            }
+        }
+    }
 }
