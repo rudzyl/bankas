@@ -1,4 +1,5 @@
 <?php
+namespace App;
 
 class Json {
 
@@ -87,7 +88,6 @@ class Json {
          }
      }
 //     //grazina sekancia id, kai norima irasyti nauja deze, duoda sekanti index
-//     //
      private function getNextId() : int {
          if(!file_exists(DIR. 'data/indexes.json')) {
              $index = json_encode(['id'=>1]);

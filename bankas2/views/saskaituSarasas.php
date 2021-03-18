@@ -15,23 +15,23 @@
     <table class="table"> 
       <?php foreach($users as $user) : ?>
         
-          <td scope="row">1</td> 
-          <td><?= $user->vardas ?></td>
-          <td><?= $user->pavarde ?></td>
-          <td><?= $user->asmensKodas ?></td>
-          <td><?= $user->asmeninisId ?></td>
-          <td><?= $user->likutis ?></td>
-          <td>
-          <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-          
-            <a href="<?= URL ?>pridetiLesas/<?= $user->id ?>" type="button" class="btn btn-success" >prideti lėšų</a>
-            <a href="<?= URL ?>withdraw/<?= $user->id ?>" type="button" class="btn btn-warning">nuskaičiuoti lėšas</a>
+          <li scope="row">
+            <?= $user->vardas ?>
+            <?= $user->pavarde ?>
+            <?= $user->asmensKodas ?>
+            <?= $user->asmeninisId ?>
+            <?= $user->likutis ?>
+            <div class="btn" role="group" aria-label="Basic mixed styles example">
+            
+              <a href="<?= URL ?>pridetiLesas/<?= $user->id ?>" type="button" class="btn btn-success" >prideti lėšų</a>
+              <a href="<?= URL ?>withdraw/<?= $user->id ?>" type="button" class="btn btn-warning">nuskaičiuoti lėšas</a>
 
-            <form style="display:inline-block;" action="<?= URL ?>delete/<?= $user->id ?>" method="post">
-              <button type="submit" class="btn btn-outline-danger">DELETE</button>
-            </form>
-          </div>
-          </td>
+              <form style="display:inline-block;" action="<?= URL ?>delete/<?= $user->id ?>" method="post">
+                <button type="submit" class="btn btn-outline-danger">DELETE</button>
+              </form>
+            </div>
+          </li> 
+          
           
         <?php endforeach ?>
       </li>
