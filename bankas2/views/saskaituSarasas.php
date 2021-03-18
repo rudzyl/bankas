@@ -24,8 +24,8 @@
           <td>
           <div class="btn-group" role="group" aria-label="Basic mixed styles example">
           
-            <a href="<?= URL ?>pridetiLesas/<?= $user->id ?>" type="button" class="btn btn-success" name="pridetiLesas">prideti lėšų</a>
-            <a href="<?= URL ?>nuskaiciuotiLesas/<?= $user->id ?>" type="button" class="btn btn-warning" name="nuskaiciuotiLesas">nuskaičiuoti lėšas</a>
+            <a href="<?= URL ?>pridetiLesas/<?= $user->id ?>" type="button" class="btn btn-success" >prideti lėšų</a>
+            <a href="<?= URL ?>withdraw/<?= $user->id ?>" type="button" class="btn btn-warning">nuskaičiuoti lėšas</a>
 
             <form style="display:inline-block;" action="<?= URL ?>delete/<?= $user->id ?>" method="post">
               <button type="submit" class="btn btn-outline-danger">DELETE</button>

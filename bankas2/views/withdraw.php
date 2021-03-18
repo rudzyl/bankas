@@ -6,9 +6,9 @@
 <!-- <p>Kliento Saskaitos Nr.: <?= $user->accountNum?></p> -->
 <p>Kliento Saskaitos Likutis: <?= $user->likutis?>Eur</p>
 
-    <form action="<?= URL ?>pridetiPinigus/<?= $user->id ?>" method="post">
+    <form action="<?= URL ?>nuskaiciuotiPinigus/<?= $user->id ?>" method="post">
         <h4>Pridekite pinigus</h4>
-        <input type="text" name="pridetiPinigus" value="<?= $user->likutis ?>"></input>
+        <input type="text" name="nuskaiciuotiPinigus" value="<?= $user->likutis ?>"></input>
         <button type="submit">PRIDETI</button>
        
     </form>
