@@ -1,9 +1,8 @@
 <?php require DIR.'views/top.php' ?>
 <?php require DIR.'views/menu.php' ?>
   <br></br>
-
-  <table class="table">
-    <thead>
+    <table class="table">
+    
       <tr>
         <th scope="col">#</th>
         <th scope="col">Vardas</th>
@@ -12,11 +11,11 @@
         <th scope="col">ID</th>
         <th scope="col">Likutis</th>
       </tr>
-    </thead>
-    <tbody>
-      <tr> 
+    </table>
+    <table class="table"> 
       <?php foreach($users as $user) : ?>
-          <th scope="row">1</th> 
+        
+          <td scope="row">1</td> 
           <td><?= $user->vardas ?></td>
           <td><?= $user->pavarde ?></td>
           <td><?= $user->asmensKodas ?></td>
@@ -24,14 +23,19 @@
           <td><?= $user->likutis ?></td>
           <td>
           <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-            <a href = "" type="button" name="istrinti">ištrinti</a>
-            <a href="<?= URL ?>pridetiLesas/<?= $user->id ?>" type="button" class="pr" name="prideti">prideti lėšų</a>
-            <a href="<?= URL ?>nuskaiciuotiLesas/<?= $user->id ?>" type="button" class="nu" name="nuskaiciuoti">nuskaičiuoti lėšas</a>
+          
+            <a href="<?= URL ?>pridetiLesas/<?= $user->id ?>" type="button" class="btn btn-success" name="pridetiLesas">prideti lėšų</a>
+            <a href="<?= URL ?>nuskaiciuotiLesas/<?= $user->id ?>" type="button" class="btn btn-warning" name="nuskaiciuotiLesas">nuskaičiuoti lėšas</a>
+
+            <form style="display:inline-block;" action="<?= URL ?>delete/<?= $user->id ?>" method="post">
+              <button type="submit" class="btn btn-outline-danger">DELETE</button>
+            </form>
           </div>
           </td>
+          
         <?php endforeach ?>
-      </tr>
-    </tbody>
-  </table>
+      </li>
+    </table>
+  
   <br></br>
   <?php require DIR.'views/bottom.php' ?>

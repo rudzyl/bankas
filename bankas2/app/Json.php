@@ -23,7 +23,7 @@ class Json {
 
     public function __destruct() {
         // irasoma i json faila
-        file_get_contents(DIR.'data/users.json', json_encode($this->data));
+        file_put_contents(DIR.'data/users.json', json_encode($this->data));
     }
 // funkcija kuri nuskaito duomenis is json
     public function readData() : array {
@@ -51,11 +51,12 @@ class Json {
  // perduodam kiek mum reik count
      public function store(User $user) : void {
 
-        _dd($user);
+        _dc($user);
 
          $id = $this->getNextId();
          $user->id = $id;
          $this->data[] = $user; // i json faila bus automatiskai irasyta
+
      }
 
      public function update(object $updateUser) : void {

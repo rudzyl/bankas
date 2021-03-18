@@ -25,7 +25,12 @@ class UserController {
         die;
         
     }
-
+    public function delete(int $id)
+    {
+        Json::getDB()->delete($id);
+        header('Location: '.URL);
+        die;
+    }
 
 
 }
