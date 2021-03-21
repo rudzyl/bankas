@@ -1,5 +1,7 @@
 <?php
 namespace App;
+use App\Json;
+use App\User;
 
 class UserController {
 
